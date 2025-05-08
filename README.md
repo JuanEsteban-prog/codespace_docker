@@ -1,29 +1,73 @@
-# Introducción a Docker
+# Proyecto Docker
 
-Este proyecto utiliza Docker para facilitar la configuración del entorno de desarrollo y la implementación de aplicaciones. Docker es una plataforma que permite crear, probar y desplegar aplicaciones dentro de contenedores, lo que asegura que se ejecuten de manera consistente sin importar el entorno.
+Este es un ejemplo de un archivo README.md para un proyecto Docker. Este archivo explica cómo configurar y usar un contenedor Docker para tu aplicación.
 
-## ¿Qué es Docker?
+## Tabla de Contenidos
 
-Docker es una herramienta de virtualización a nivel de sistema operativo que permite crear contenedores. Los contenedores son entornos aislados donde las aplicaciones pueden ejecutarse, con todas sus dependencias, sin interferir con otros entornos o sistemas. Esto hace que Docker sea ideal para desarrollo, pruebas y despliegue.
+- [Descripción](#descripción)
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Construcción de la Imagen](#construcción-de-la-imagen)
+- [Variables de Entorno](#variables-de-entorno)
+- [Puertos Expuestos](#puertos-expuestos)
+- [Ejemplos](#ejemplos)
+- [Desarrollo](#desarrollo)
+- [Licencia](#licencia)
 
-## Requisitos previos
+## Descripción
 
-Para usar Docker, necesitas tener instalado el siguiente software en tu m�quina:
+Este proyecto utiliza Docker para contener una aplicación. Docker permite ejecutar aplicaciones en entornos aislados, lo que facilita la configuración, el despliegue y la distribución de aplicaciones sin preocuparse por las diferencias en los entornos de desarrollo.
 
-- [Docker](https://www.docker.com/get-started) (incluye Docker Engine y Docker Compose)
+## Requisitos
 
-Si no tienes Docker instalado, puedes seguir la guía de instalación correspondiente a tu sistema operativo en el siguiente enlace: [Guía de instalación de Docker](https://docs.docker.com/get-docker/).
+- Docker instalado en tu máquina.
+- Docker Compose (si deseas usar múltiples contenedores).
 
-## Instrucciones de uso
+## Instalación
 
-### Clonar el repositorio
+1. **Clonar el repositorio**:
 
-Primero, clona el repositorio a tu máquina local:
+    ```bash
+    git clone https://github.com/tu-usuario/tu-repositorio.git
+    cd tu-repositorio
+    ```
+
+2. **Construir la imagen de Docker** (Si tienes un `Dockerfile` en el repositorio):
+
+    ```bash
+    docker build -t nombre-imagen .
+    ```
+
+## Uso
+
+1. **Ejecutar el contenedor**:
+
+    Si ya has creado la imagen, puedes ejecutar un contenedor con el siguiente comando:
+
+    ```bash
+    docker run -d -p 8080:80 nombre-imagen
+    ```
+
+    Este comando ejecuta el contenedor en segundo plano y expone el puerto 8080 en tu máquina al puerto 80 del contenedor.
+
+2. **Usar Docker Compose** (si usas un archivo `docker-compose.yml`):
+
+    Si usas Docker Compose para configurar varios servicios, puedes levantar los contenedores con:
+
+    ```bash
+    docker-compose up
+    ```
+
+    Para ejecutar en segundo plano:
+
+    ```bash
+    docker-compose up -d
+    ```
+
+## Construcción de la Imagen
+
+Para crear la imagen de Docker, se puede usar el siguiente comando desde la raíz del proyecto, donde está ubicado el `Dockerfile`:
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
-
-```
-
-a
+docker build -t nombre-imagen .
